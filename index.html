@@ -11,7 +11,51 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="password-locked">
+  <section class="password-gate" id="password-gate" aria-labelledby="password-title">
+    <form class="password-card" id="password-form">
+      <div class="password-monogram">P <span>+</span> M</div>
+      <p class="eyebrow">YOU'RE INVITED</p>
+      <h1 id="password-title">A little something<br><em>just for you.</em></h1>
+      <p class="password-intro">Please enter the wedding website password to continue.</p>
+      <label class="password-label" for="site-password">Password</label>
+      <input class="password-input" id="site-password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button class="pill-button password-submit" type="submit">Enter the website <span aria-hidden="true">→</span></button>
+      <p class="password-error" id="password-error" role="alert" aria-live="polite"></p>
+    </form>
+  </section>
+  <script>
+    (function () {
+      const form = document.getElementById('password-form');
+      const passwordInput = document.getElementById('site-password');
+      const error = document.getElementById('password-error');
+      const gate = document.getElementById('password-gate');
+
+      fetch('./password.txt', { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Password file could not be loaded.');
+          return response.text();
+        })
+        .then(function (text) {
+          const correctPassword = text.trim();
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (passwordInput.value === correctPassword) {
+              document.body.classList.remove('password-locked');
+              gate.hidden = true;
+              error.textContent = '';
+            } else {
+              error.textContent = 'That password doesn’t look right. Please try again.';
+              passwordInput.select();
+            }
+          });
+        })
+        .catch(function () {
+          error.textContent = 'The password screen could not load. Please try again later.';
+          form.addEventListener('submit', function (event) { event.preventDefault(); });
+        });
+    }());
+  </script>
   <header class="hero" id="top">
     <img class="hero-photo" src="images/LookWhatIFound.jpg" alt="Paul and Morgan together" fetchpriority="high">
     <div class="hero-shade"></div>
