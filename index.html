@@ -10,6 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Critical lock styles: hide all wedding content before the password is accepted. */
+    body.password-locked > header,
+    body.password-locked > main,
+    body.password-locked > footer {
+      display: none !important;
+    }
+  </style>
 </head>
 <body class="password-locked">
   <section class="password-gate" id="password-gate" aria-labelledby="password-title">
