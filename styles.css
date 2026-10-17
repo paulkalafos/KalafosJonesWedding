@@ -17,7 +17,7 @@ footer{text-align:center;padding:52px 20px 46px;background:#2f322d;color:#f6f4ef
 
 /* Simple password gate (visual deterrent only; password.txt is public on GitHub Pages). */
 body.password-locked{overflow:hidden}
-body.password-locked>header,body.password-locked>main,body.password-locked>footer{visibility:hidden}
+body.password-locked>header,body.password-locked>main,body.password-locked>footer{display:none!important;visibility:hidden}
 .password-gate{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:auto;padding:28px 18px;background:var(--canvas);color:var(--ink)}
 .password-gate[hidden]{display:none}
 .password-card{width:min(100%,480px);padding:clamp(28px,6vw,56px);background:var(--paper);border:1px solid var(--line);text-align:center;box-shadow:var(--shadow)}
