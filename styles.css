@@ -968,26 +968,17 @@ h2 {
 
 .schedule-time {
   display:flex;
-  flex-wrap:wrap;
-  align-items:baseline;
-  gap:8px 14px;
-  margin:22px 0 10px;
-  padding-top:18px;
-  border-top:1px solid var(--line)
-}
-
-.schedule-time span:first-child {
-  font:500 1.35rem 'Playfair Display',serif;
-  color:var(--accent-dark)
-}
-
-.schedule-time span:last-child {
-  color:var(--muted);
-  font-size:1.5rem
+  margin-top:10px;
+  padding:5px 10px;
+  background:#e8f4ed;
+  color:#39765d;
+  font-size:.76rem;
+  font-weight:600;
+  letter-spacing:.025em
 }
 
 .schedule-note {
-  display:inline-block;
+  display:flex;
   margin-top:10px;
   padding:5px 10px;
   background:#e8f4ed;
