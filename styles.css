@@ -440,14 +440,6 @@ h2 {
   box-shadow:0 8px 28px rgba(34,35,29,.06)
 }
 
-.photo-frame:nth-child(2) {
-  margin-top:34px
-}
-
-.photo-frame:nth-child(3) {
-  margin-top:68px
-}
-
 .photo-frame img {
   width:100%;
   aspect-ratio:4/5;
