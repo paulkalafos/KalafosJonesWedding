@@ -1359,3 +1359,56 @@ main > .section-wrap .section-heading {
     margin-bottom:22px;
   }
 }
+
+
+/* Dedicated Photos page: shared palette and navigation. */
+.photos-page-header {
+  color:white;
+  background:#34372f;
+  padding-bottom:48px;
+}
+
+.photos-page-header .nav {
+  width:min(1100px,calc(100% - 48px));
+  margin:0 auto;
+}
+
+.photos-page-intro {
+  max-width:760px;
+  margin:44px auto 0;
+  padding:0 24px;
+  text-align:center;
+}
+
+.photos-page-intro .eyebrow {
+  color:#a9ddc6;
+}
+
+.photos-page-intro h1 {
+  margin:12px 0;
+  font:500 clamp(3rem,8vw,5.5rem)/1.1 'Playfair Display',serif;
+}
+
+.photos-page-intro p {
+  margin:0 auto;
+  color:rgba(255,255,255,.86);
+}
+
+.photos-page-header .nav-links a[aria-current="page"] {
+  border-bottom-color:var(--accent);
+}
+
+@media(max-width:540px) {
+  .photos-page-header .nav {
+    width:calc(100% - 28px);
+    padding:20px 0;
+  }
+
+  .photos-page-intro {
+    margin:26px auto 0;
+  }
+
+  .photos-page-header {
+    padding-bottom:38px;
+  }
+}
