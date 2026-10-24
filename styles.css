@@ -983,7 +983,7 @@ h2 {
 
 .schedule-time span:last-child {
   color:var(--muted);
-  font-size:.9rem
+  font-size:1.5rem
 }
 
 .schedule-note {
