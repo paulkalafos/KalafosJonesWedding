@@ -46,7 +46,7 @@
           const correctPassword = text.trim();
           form.addEventListener('submit', function (event) {
             event.preventDefault();
-            if (passwordInput.value === correctPassword) {
+            if (passwordInput.value.trim().toLowerCase() === correctPassword.toLowerCase()) {
               document.body.classList.remove('password-locked');
               gate.hidden = true;
               error.textContent = '';
