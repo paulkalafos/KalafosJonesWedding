@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="Photos of Paul and Morgan and memories from weddings with friends and family.">
+  <title>Photos | Paul &amp; Morgan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.password-locked > header,
+    body.password-locked > main,
+    body.password-locked > footer { display:none!important; }
+  </style>
+</head>
+<body class="password-locked">
+  <section class="password-gate" id="password-gate" aria-labelledby="password-title">
+    <form class="password-card" id="password-form">
+      <div class="password-monogram">P <span>+</span> M</div>
+      <p class="password-intro">Please enter the code to continue.</p>
+      <label class="password-label" for="site-password">Code:</label>
+      <input class="password-input" id="site-password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button class="pill-button password-submit" type="submit">Enter the website <span aria-hidden="true">→</span></button>
+      <p class="password-error" id="password-error" role="alert" aria-live="polite"></p>
+    </form>
+  </section>
+  <script>
+    (function () {
+      const form = document.getElementById('password-form');
+      const passwordInput = document.getElementById('site-password');
+      const error = document.getElementById('password-error');
+      const gate = document.getElementById('password-gate');
+
+      fetch('./password.txt', { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Password file could not be loaded.');
+          return response.text();
+        })
+        .then(function (text) {
+          const correctPassword = text.trim();
+          if (sessionStorage.getItem('weddingAccess') === correctPassword.toLowerCase()) {
+            document.body.classList.remove('password-locked');
+            gate.hidden = true;
+          }
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (passwordInput.value.trim().toLowerCase() === correctPassword.toLowerCase()) {
+              sessionStorage.setItem('weddingAccess', correctPassword.toLowerCase());
+              document.body.classList.remove('password-locked');
+              gate.hidden = true;
+              error.textContent = '';
+            } else {
+              error.textContent = 'That password doesn’t look right. Please try again.';
+              passwordInput.select();
+            }
+          });
+        })
+        .catch(function () {
+          error.textContent = 'The password screen could not load. Please try again later.';
+          form.addEventListener('submit', function (event) { event.preventDefault(); });
+        });
+    }());
+  </script>
+
+  <header class="photos-page-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">P <span>+</span> M</a>
+      <div class="nav-links">
+        <a href="index.html#details">Schedule</a><a href="index.html#travel">Travel</a><a href="index.html#rsvp">RSVP</a><a href="index.html#registry">Registry</a><a href="index.html#faq">FAQ</a><a href="photos.html" aria-current="page">Photos</a>
+      </div>
+    </nav>
+    <div class="photos-page-intro">
+      <span class="eyebrow">OUR FAVORITE MOMENTS</span>
+      <h1>Photos</h1>
+      <p>A collection of memories together.</p>
+    </div>
+  </header>
+  <main>
+    <section class="photos section-wrap" id="photos">
+      <div class="section-heading"><span class="eyebrow">THE LITTLE MOMENTS</span><h2>A few favorites</h2><p>Some memories from our story so far.</p></div>
+      <div class="photo-grid">
+        <figure class="photo-frame"><img src="images/BmoreLickEngagement.jpg" alt="Paul and Morgan in Baltimore" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/BoatSmooch.jpg" alt="Paul and Morgan on the boat" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/Chicago.jpg" alt="Paul and Morgan in Chicago" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/LookWhatIFound.jpg" alt="Paul and Morgan together" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/NicePicturePaulMorgan.jpg" alt="A portrait of Paul and Morgan" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/Orioles.jpg" alt="Paul and Morgan at an Orioles game" loading="lazy"></figure>
+      </div>
+    </section>
+    <section class="photos section-wrap" id="other-weddings">
+      <div class="section-heading"><span class="eyebrow">CELEBRATING LOVE</span><h2>Morgan &amp; Paul at others' weddings</h2><p>Some favorite moments celebrating our friends and family.</p></div>
+      <div class="photo-grid">
+        <figure class="photo-frame"><img src="images/OtherWeddings/1.Saddler.jpg" alt="Morgan and Paul at the Saddler wedding" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/OtherWeddings/2.Walsh.jpg" alt="Morgan and Paul at the Walsh wedding" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/OtherWeddings/3.Watts.jpg" alt="Morgan and Paul at the Watts wedding" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/OtherWeddings/4.Gironda.jpg" alt="Morgan and Paul at the Gironda wedding" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/OtherWeddings/5.Keating.jpg" alt="Morgan and Paul at the Keating wedding" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/OtherWeddings/6.Derlink.jpg" alt="Morgan and Paul at the Derlink wedding" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/OtherWeddings/7.Walsh.jpg" alt="Morgan and Paul at another Walsh wedding" loading="lazy"></figure>
+        <figure class="photo-frame"><img src="images/OtherWeddings/8. Melissa &amp; Jonathan .jpg" alt="Morgan and Paul at Melissa and Jonathan's wedding" loading="lazy"></figure>
+      </div>
+    </section>
+  </main>
+  <footer><div class="footer-monogram">P <span>+</span> M</div><p class="footer-title">We can't wait to see you.</p><p>April 24, 2027 · The Waterfront Venue &amp; Catering</p><a href="index.html">Back to home ↑</a></footer>
+</body>
+</html>
