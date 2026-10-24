@@ -104,3 +104,38 @@ h2{line-height:1.16}
   .faq-item{grid-template-columns:30px minmax(0,1fr);gap:12px;padding:21px 18px}
   .faq-copy h3{font-size:1.15rem}
 }
+
+
+/* Consistent section rhythm and card language across the site. */
+.details,.travel,.coming-section,.faq,.photos{border-top:1px solid var(--line)}
+.section-heading{width:min(100%,700px);margin:0 auto 42px;text-align:center}
+.section-heading .eyebrow{margin-bottom:10px}
+.section-heading h2{margin:0 0 14px}
+.section-heading>p{max-width:62ch}
+.schedule-card,.hotel-placeholder,.coming-soon-card,.faq-item{
+  background:var(--paper);
+  border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(34,35,29,.04);
+}
+.schedule-card:before{background:var(--accent)}
+.hotel-placeholder{box-shadow:none}
+.coming-soon-card{border-top:3px solid var(--accent)}
+.faq-item{box-shadow:none}
+.faq-number,.hotel-number{color:var(--accent-dark)}
+.schedule-day,.coming-mark{color:var(--accent-dark)}
+.travel-icon,.coming-mark{border-color:var(--line)}
+@media(max-width:540px){
+  /* Keep the hero image below the navigation and above the headline on phones. */
+  .hero{min-height:0;height:auto;padding-bottom:0;display:flex;flex-direction:column}
+  .hero-photo{top:82px;left:0;width:100%;height:250px;object-fit:contain;object-position:center;background:#34372f}
+  .hero-shade{left:0;right:0;top:332px;height:calc(100% - 332px);background:#34372f}
+  .nav{min-height:70px;position:relative;z-index:3}
+  .hero-content{width:calc(100% - 28px);margin:0 auto;padding:350px 0 44px;z-index:2}
+  .hero-bottom{position:relative;z-index:2;margin-top:auto;padding:0 0 22px}
+  .section-heading{margin-bottom:30px}
+}
+@media(max-width:360px){
+  .hero-photo{top:86px;height:220px}
+  .hero-shade{top:306px;height:calc(100% - 306px)}
+  .hero-content{padding-top:324px}
+}
