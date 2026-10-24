@@ -127,14 +127,14 @@ h2{line-height:1.16}
 @media(max-width:540px){
   /* Enlarge the hero photo on phones and keep it clear of navigation and text. */
   .hero{min-height:0;height:auto;padding-bottom:0;display:flex;flex-direction:column}
-  .nav{min-height:70px;position:relative;z-index:3}
-  .hero-photo{position:relative;top:auto;left:auto;display:block;width:calc(100% - 36px);height:auto;max-height:none;aspect-ratio:3 / 4;object-fit:cover;object-position:center;margin:14px auto 0;background:#34372f}
+  .nav{order:1;min-height:70px;position:relative;z-index:3}
+  .hero-photo{position:relative;top:auto;left:auto;order:3;display:block;width:calc(100% - 36px);height:auto;max-height:none;aspect-ratio:3 / 4;object-fit:cover;object-position:center;margin:0 auto 26px;background:#34372f}
   .hero-shade{display:none}
-  .hero-content{width:calc(100% - 28px);margin:0 auto;padding:34px 0 36px;z-index:2}
-  .hero-bottom{position:relative;z-index:2;margin-top:0;padding:0 0 22px}
+  .hero-content{order:2;width:calc(100% - 28px);margin:0 auto;padding:30px 0 34px;z-index:2}
+  .hero-bottom{order:4;position:relative;z-index:2;margin-top:0;padding:0 0 22px}
   .section-heading{margin-bottom:30px}
 }
 @media(max-width:360px){
-  .hero-photo{width:calc(100% - 28px);margin-top:10px}
+  .hero-photo{width:calc(100% - 28px)}
   .hero-content{padding-top:28px}
 }
