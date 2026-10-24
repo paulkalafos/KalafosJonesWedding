@@ -1333,3 +1333,29 @@ h2 {
     padding-top:28px
   }
 }
+
+
+/* Compact section spacing and subtle framed section boundaries. */
+main > .section-wrap {
+  padding-top:clamp(36px,5vw,64px);
+  padding-bottom:clamp(36px,5vw,64px);
+}
+
+main > .section-wrap + .section-wrap {
+  border-top:2px solid var(--accent);
+}
+
+main > .section-wrap .section-heading {
+  margin-bottom:clamp(22px,3vw,32px);
+}
+
+@media(max-width:540px) {
+  main > .section-wrap {
+    padding-top:34px;
+    padding-bottom:38px;
+  }
+
+  main > .section-wrap .section-heading {
+    margin-bottom:22px;
+  }
+}
