@@ -37,6 +37,14 @@
       const error = document.getElementById('password-error');
       const gate = document.getElementById('password-gate');
 
+      // Local preview: file:// pages cannot reliably fetch password.txt.
+      // Only bypass the password for files opened directly from disk.
+      if (window.location.protocol === 'file:') {
+        document.body.classList.remove('password-locked');
+        gate.hidden = true;
+        return;
+      }
+
       fetch('./password.txt', { cache: 'no-store' })
         .then(function (response) {
           if (!response.ok) throw new Error('Password file could not be loaded.');
