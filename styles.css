@@ -1501,6 +1501,11 @@ main > .section-wrap .section-heading {
 
 #travel .travel-hotel .hotel-address {
   margin-bottom: 22px;
+  font-size: 1.08rem;
+}
+
+#travel .travel-hotel h4 {
+  font-size: 1.4rem;
 }
 
 #travel .hotel-booking-link:not([hidden]) {
@@ -1528,4 +1533,5 @@ main > .section-wrap .section-heading {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
 }

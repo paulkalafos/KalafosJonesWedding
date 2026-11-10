@@ -128,18 +128,17 @@
           <div class="travel-panel-divider"></div>
           <h4>Courtyard by Marriott Baltimore Downtown/McHenry Row</h4>
           <p class="hotel-address">1803 Porter St, Baltimore, MD 21230</p>
-          <a id="hotel-booking-link" class="hotel-booking-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Book a room at the recommended hotel →</a>
-          <p id="hotel-booking-status" class="hotel-edit-note">Booking link coming soon.</p>
+          <a class="hotel-booking-link" href="https://app.marriott.com/resview2?id=1793630860767&amp;key=GRP&amp;app=resvlink" target="_blank" rel="noopener noreferrer">Book now</a>
         </article>
         <article class="travel-panel travel-notes">
           <span class="eyebrow">GOOD TO KNOW</span>
           <h3>Travel Notes &amp; Local Information</h3>
           <div class="travel-panel-divider"></div>
           <h4>Getting here &amp; getting around</h4>
-          <p class="travel-placeholder">Add airport, transportation, parking, and travel-between-events details here.</p>
+          <p class="travel-placeholder">We figure many of you have local accommodations, or may opt to rent a house with friends, but we have reserved some rooms at a hotel in South Baltimore for those who need. Don't worry, you won't have to drive downtown if you don't want to, it's right of I-95 and about a 15 minute drive from BWI if you are flying in. </p>
+          <p class="travel-placeholder">There will be a shuttle from the hotel to the venue on Saturday, and we'll iron out the exact schedule in the coming months. It's about a 25 minute drive. </p>
           <h4>Make a weekend of it</h4>
-          <p>We’re excited to welcome everyone into town! If you have extra time, consider visiting Fort McHenry, the National Aquarium, or Camden Yards.</p>
-          <p class="travel-placeholder">Add any other helpful tips for guests here.</p>
+          <p class="travel-placeholder">If you have extra time and are interested in some local attractions, consider visiting Fort McHenry, the National Aquarium, or Camden Yards (pending a resolution in MLB labor negotiations). </p>
         </article>
       </div>
     </section>
@@ -216,34 +215,5 @@
 
   </main>
   <footer><div class="footer-monogram">P <span>+</span> M</div><p class="footer-title">We can't wait to see you.</p><p>April 24, 2027 · The Waterfront Venue &amp; Catering</p><a href="#top">Back to the top ↑</a></footer>
-  <script>
-    (function () {
-      const bookingLink = document.getElementById('hotel-booking-link');
-      const bookingStatus = document.getElementById('hotel-booking-status');
-
-      fetch('./Hotel_link.txt', { cache: 'no-store' })
-        .then(function (response) {
-          if (!response.ok) throw new Error('Hotel booking link not available.');
-          return response.text();
-        })
-        .then(function (text) {
-          const url = text.trim();
-          if (!url || url.startsWith('#')) return;
-          let parsed;
-          try {
-            parsed = new URL(url);
-          } catch (_) {
-            return;
-          }
-          if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return;
-          bookingLink.href = parsed.href;
-          bookingLink.hidden = false;
-          bookingStatus.hidden = true;
-        })
-        .catch(function () {
-          // Keep the "coming soon" message if the file is unavailable.
-        });
-    }());
-  </script>
 </body>
 </html>
